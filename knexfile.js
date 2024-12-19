@@ -9,7 +9,10 @@ if (!DATABASE_URL) {
 module.exports = {
   development: {
     client: "pg",
-    connection: DATABASE_URL,
+    connection: {
+      connectionString: DATABASE_URL,
+      ssl: {rejectUnauthorized: false}
+    },
     migrations: {
       directory: path.join(__dirname, "src", "db", "migrations"),
     },
