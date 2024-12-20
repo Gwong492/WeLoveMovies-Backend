@@ -24,4 +24,21 @@ module.exports = {
       max: 10,
     },
   },
+  production: {
+    client: "pg",
+    connection: {
+      connectionString: DATABASE_URL,
+      ssl: {rejectUnauthorized: false}
+    },
+    migrations: {
+      directory: path.join(__dirname, "src", "db", "migrations"),
+    },
+    seeds: {
+      directory: path.join(__dirname, "src", "db", "seeds"),
+    },
+    pool: {
+      min: 2,
+      max: 10,
+    },
+  }
 };
